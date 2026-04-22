@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Land Grow Business Intelligence — Aceleração empresarial com direção estratégica, governança e expansão comercial para empresas com faturamento a partir de 7 dígitos." />
+  <title>Land Grow Business Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── BRAND FONTS ───────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Aktiv Grotesk Ex';
+      src: url('assets/Aktiv Grotesk Ex.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quatro';
+      src: url('assets/Quatro-Book.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quatro';
+      src: url('assets/Quatro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quatro';
+      src: url('assets/Quatro-BoldItalic.ttf') format('truetype');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quatro';
+      src: url('assets/Quatro-Black.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Quatro';
+      src: url('assets/Quatro-BlackItalic.ttf') format('truetype');
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* ─── RESET & BASE ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:        #050D1A;
+      --bg-card:        #0A1628;
+      --bg-section:     #071220;
+      --accent-lime:    #C4E600;
+      --accent-teal:    #1E8A9E;
+      --text-primary:   #FFFFFF;
+      --text-secondary: #8A9BB5;
+      --text-muted:     #4A5A72;
+      --border:         rgba(196, 230, 0, 0.12);
+      --border-subtle:  rgba(255,255,255,0.06);
+      --radius:         12px;
+      --radius-sm:      8px;
+      --transition:     0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ─── TYPOGRAPHY ───────────────────────────────────────────────── */
+    .font-display { font-family: 'Quatro', serif; font-weight: 900; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Quatro', serif;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .section-label {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent-lime);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── LAYOUT ───────────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 6rem 0; }
+
+    /* ─── BUTTONS ──────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: none;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.1);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent-lime);
+      color: #050D1A;
+      font-weight: 700;
+    }
+    .btn-primary:hover { box-shadow: 0 8px 32px rgba(196,230,0,0.3); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-subtle);
+    }
+    .btn-outline:hover { border-color: rgba(196,230,0,0.4); color: var(--accent-lime); }
+
+    .btn-lg { font-size: 1.05rem; padding: 1rem 2.4rem; }
+
+    /* ─── SCROLL REVEAL ────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ─── NAVIGATION ───────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: background var(--transition), backdrop-filter var(--transition), padding var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      background: rgba(5,13,26,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      gap: 0.55rem;
+    }
+    .nav-logo-mark {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+    .nav-logo-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1;
+    }
+    .nav-logo-name {
+      font-family: 'Quatro', serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+    }
+    .nav-logo-tagline {
+      font-family: 'Quatro', serif;
+      font-weight: 300;
+      font-size: 0.52rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+      line-height: 1.2;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+    .nav-links a {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta { display: flex; align-items: center; }
+    .nav-cta .btn {
+      white-space: nowrap;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: rgba(5,13,26,0.98);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      gap: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO — editorial magazine style, left-aligned, rotating bg
+    ═══════════════════════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-deep);
+    }
+
+    /* Background image stack */
+    .hero-bg-stack {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg-item {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center center;
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 1.5s cubic-bezier(0.4,0,0.2,1),
+                  transform 7s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change: opacity, transform;
+    }
+    .hero-bg-item.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Layered overlay: heavy left for text legibility, light right */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(108deg,
+          rgba(5,13,26,0.97) 0%,
+          rgba(5,13,26,0.94) 42%,
+          rgba(5,13,26,0.66) 68%,
+          rgba(5,13,26,0.28) 100%
+        ),
+        linear-gradient(to bottom,
+          rgba(5,13,26,0.55) 0%,
+          transparent 18%,
+          transparent 72%,
+          rgba(5,13,26,0.80) 100%
+        );
+    }
+
+    /* ── Main content (left-aligned) ── */
+    .hero-main {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      padding: 4rem 2.5rem 3rem;
+      max-width: 860px;
+    }
+
+    /* Editorial eyebrow — dash line + text, no pill */
+    .hero-eyebrow-ed {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: heroFadeUp 0.8s 0.3s ease both;
+    }
+    .hero-eyebrow-dash {
+      width: 28px;
+      height: 1px;
+      background: var(--accent-lime);
+      flex-shrink: 0;
+    }
+    .hero-eyebrow-cat {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+    }
+    .hero-eyebrow-sep {
+      color: rgba(196,230,0,0.28);
+      font-size: 0.6rem;
+      letter-spacing: 0;
+    }
+    .hero-eyebrow-sub {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Headline — Inter Tight 800 + Cormorant Garamond italic */
+    .hero-title-ed {
+      font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: heroFadeUp 1s 0.52s ease both;
+    }
+    .hero-t-sans {
+      display: block;
+      font-family: 'Aktiv Grotesk Ex', 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+    .hero-t-serif {
+      display: block;
+      line-height: 1.0;
+    }
+    .hero-t-serif em {
+      font-family: 'Quatro', serif;
+      font-style: italic;
+      font-weight: 900;
+      color: var(--accent-lime);
+      font-size: 1.18em;
+      letter-spacing: -0.01em;
+    }
+
+    /* Subheadline */
+    .hero-sub-ed {
+      font-size: clamp(0.88rem, 1.3vw, 0.97rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.44);
+      line-height: 1.62;
+      max-width: 490px;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      animation: heroFadeUp 1s 0.74s ease both;
+    }
+
+    /* Single CTA wrapper */
+    .hero-cta-wrap {
+      opacity: 0;
+      animation: heroFadeUp 1s 0.94s ease both;
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Bottom bar ── */
+    .hero-bottom-bar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-img-labels {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .hero-img-label {
+      font-size: 0.63rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.4s;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .hero-img-label::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--accent-lime);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    .hero-img-label.active { color: var(--text-primary); }
+    .hero-img-label.active::after { transform: scaleX(1); }
+
+    .hero-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .hero-progress-track-el {
+      width: 160px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .hero-progress-fill-el {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      background: var(--accent-lime);
+      transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .hero-scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: hintBounce 2.5s 2s ease-in-out infinite;
+    }
+    @keyframes hintBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(4px); }
+    }
+
+    /* Responsive hero */
+    @media (max-width: 768px) {
+      .hero-meta-bar,
+      .hero-bottom-bar { padding: 1rem 1.5rem; }
+      .hero-main { padding: 2.5rem 1.5rem 2rem; }
+      .hero-meta-left { gap: 0.7rem; font-size: 0.58rem; }
+      .hero-img-labels { gap: 1.25rem; }
+      .hero-progress-track-el { width: 80px; }
+      .hero-scroll-hint { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-img-labels { gap: 0.9rem; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       CARROSSEL — logo-carousel style
+    ═══════════════════════════════════════════════════════════════ */
+    #partners {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-section);
+      overflow: hidden;
+    }
+
+    .partners-header {
+      margin-bottom: 2.5rem;
+    }
+    .partners-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--text-primary);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    /* Animated letter reveal (TextRoll-inspired via CSS) */
+    .partners-title .t-char {
+      display: inline-block;
+      opacity: 0;
+      transform: rotateX(90deg);
+      animation: charReveal 0.5s ease forwards;
+    }
+
+    @keyframes charReveal {
+      to { opacity: 1; transform: rotateX(0deg); }
+    }
+
+    .marquee-track {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .marquee-inner {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-inner:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 2rem;
+      min-width: 170px;
+      height: 84px;
+      flex-shrink: 0;
+      transition: border-color var(--transition), background var(--transition);
+      cursor: default;
+    }
+    .partner-card:hover {
+      border-color: rgba(196,230,0,0.3);
+      background: rgba(255,255,255,0.07);
+    }
+    .partner-logo-img {
+      height: 44px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: screen;
+      filter: opacity(0.7);
+      transition: filter var(--transition);
+    }
+    .partner-card:hover .partner-logo-img {
+      filter: opacity(1);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       QUEM SOMOS — cybernetic-bento-grid style
+    ═══════════════════════════════════════════════════════════════ */
+    #conceito {
+      background: var(--bg-section);
+    }
+
+    .conceito-header {
+      margin-bottom: 2.5rem;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    /* Generic bento cell */
+    .bento-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+      cursor: default;
+    }
+    /* Mouse-tracking glow */
+    .bento-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        400px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+        rgba(196,230,0,0.07),
+        transparent 60%
+      );
+      pointer-events: none;
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+    .bento-item:hover::before { opacity: 1; }
+    .bento-item:hover {
+      border-color: rgba(196,230,0,0.18);
+    }
+
+    /* Cell sizing */
+    .bento-a { grid-column: span 2; }   /* Title + intro */
+    .bento-b { grid-column: span 1; }   /* Badge + quote */
+    .bento-c { grid-column: span 1; }   /* Pillars */
+    .bento-d { grid-column: span 1; }   /* Paragraphs */
+    .bento-e { grid-column: span 1; }   /* Closing stat */
+
+    /* Top accent line */
+    .bento-item.accent-top::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-lime), transparent);
+    }
+
+    .bento-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .bento-label::before {
+      content: '';
+      width: 16px; height: 1.5px;
+      background: var(--accent-lime);
+    }
+    .bento-title {
+      font-family: 'Quatro', serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .bento-title em { font-style: italic; font-weight: 300; color: var(--accent-lime); }
+    .bento-photo { overflow: hidden; padding: 0; }
+    .bento-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bento-body {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .bento-body strong { color: var(--text-primary); font-weight: 500; }
+    .bento-body p + p { margin-top: 0.75rem; }
+
+    /* Badge */
+    .conceito-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 0.4rem 0.9rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--accent-lime);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* Quote big text */
+    .bento-quote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-top: 0.75rem;
+    }
+    .bento-quote em { font-style: normal; color: var(--accent-lime); }
+
+    /* Pillars list */
+    .pillar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .pillar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .pillar-item::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--accent-lime);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+
+    /* Closing big stat */
+    .bento-closing {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-top: auto;
+    }
+    .bento-closing span { color: var(--accent-lime); }
+
+    /* Decorative large bg letter */
+    .bento-bg-letter {
+      position: absolute;
+      bottom: -0.5rem; right: -0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 7rem;
+      color: rgba(196,230,0,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PARA QUEM — modern-feature-grid style
+    ═══════════════════════════════════════════════════════════════ */
+    #para-quem {
+      background: var(--bg-deep);
+      position: relative;
+    }
+
+    /* Global mouse glow overlay */
+    #para-quem-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(
+        600px circle at var(--glow-x, -400px) var(--glow-y, -400px),
+        rgba(196,230,0,0.06),
+        transparent 70%
+      );
+      transition: background 0.1s;
+    }
+    #para-quem .container { position: relative; z-index: 1; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-subtle);
+      background: rgba(10,22,40,0.5);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.04) translateY(-2px);
+      border-color: var(--border);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    /* Icon container — bordered box like modern-feature-grid */
+    .feature-icon-box {
+      width: 3rem; height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      flex-shrink: 0;
+    }
+    .feature-icon-box svg {
+      width: 22px; height: 22px;
+      stroke: var(--accent-lime);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .feature-text h4 {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+      line-height: 1.4;
+    }
+    .feature-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .para-quem-closing {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      text-align: center;
+    }
+    .para-quem-closing p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: var(--text-primary);
+      line-height: 1.4;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .para-quem-closing p span { color: var(--accent-lime); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       JORNADA — features-2 / CardDecorator style
+    ═══════════════════════════════════════════════════════════════ */
+    #como-funciona { background: var(--bg-section); position: relative; overflow: hidden; }
+    #como-funciona .container { position: relative; z-index: 1; }
+
+    .como-intro {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .phase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .phase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+
+    /* CardDecorator — dot-grid with radial mask */
+    .phase-decorator {
+      position: relative;
+      width: 144px;
+      height: 144px;
+      margin: 2rem auto 0;
+      -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
+      mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%);
+      flex-shrink: 0;
+    }
+    /* Dot grid inside */
+    .phase-decorator::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(196,230,0,0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(196,230,0,0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    /* Icon/number box — border-top + border-left (asymmetric, features-2 style) */
+    .phase-decorator-inner {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 3rem; height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border-top: 1px solid rgba(196,230,0,0.25);
+      border-left: 1px solid rgba(196,230,0,0.25);
+    }
+    .phase-decorator-inner svg {
+      width: 22px; height: 22px;
+      stroke: var(--accent-lime);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .phase-body {
+      padding: 1.25rem 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .phase-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-lime);
+      margin-bottom: 0.4rem;
+    }
+    .phase-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .phase-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .phase-deliverable {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(196,230,0,0.04);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.85rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .phase-deliverable strong { color: var(--accent-lime); }
+
+    /* ─── SEÇÕES MANTIDAS DA V1 ─────────────────────────────────── */
+
+    /* O QUE IMPLEMENTAMOS */
+    #implementamos { background: var(--bg-deep); }
+
+    .implementamos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .impl-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .impl-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .impl-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-lime), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .impl-card:hover::before { transform: scaleX(1); }
+    .impl-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 4rem;
+      color: rgba(196,230,0,0.06);
+      line-height: 1;
+      margin-bottom: -1rem;
+    }
+    .impl-icon {
+      width: 52px; height: 52px;
+      background: rgba(196,230,0,0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .impl-icon svg { width: 26px; height: 26px; stroke: var(--accent-lime); fill: none; stroke-width: 1.5; }
+    .impl-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .impl-body { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* METODOLOGIA */
+    #metodologia { background: var(--bg-card); }
+    .metodologia-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .met-tab {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.75rem 1.5rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color var(--transition), border-color var(--transition);
+      background: none;
+      border-top: none; border-left: none; border-right: none;
+    }
+    .met-tab:hover { color: var(--text-secondary); }
+    .met-tab.active { color: var(--accent-lime); border-bottom-color: var(--accent-lime); }
+    .met-panel { display: none; }
+    .met-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .met-content h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .met-content h3 span { color: var(--accent-lime); }
+    .met-subtitle {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem;
+    }
+    .met-body { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; }
+    .met-visual {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .met-visual-title {
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      font-size: 0.8rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;
+    }
+    .met-feature {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem; background: rgba(196,230,0,0.04);
+      border-radius: var(--radius-sm); border: 1px solid rgba(196,230,0,0.06);
+    }
+    .met-feature-icon {
+      width: 34px; height: 34px; background: rgba(196,230,0,0.1);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .met-feature-icon svg { width: 16px; height: 16px; stroke: var(--accent-lime); fill: none; stroke-width: 2; }
+    .met-feature-text { font-size: 0.85rem; color: var(--text-secondary); }
+    .met-feature-text strong { color: var(--text-primary); display: block; font-size: 0.82rem; margin-bottom: 0.1rem; }
+
+    /* CASES */
+    #cases { background: var(--bg-deep); }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .case-result {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1.6rem; color: var(--accent-lime); line-height: 1.1;
+    }
+    .case-tag {
+      display: inline-block; background: rgba(196,230,0,0.08); color: var(--accent-lime);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 4px; margin-bottom: 0.5rem;
+    }
+    .case-divider { width: 32px; height: 2px; background: var(--border); }
+    .case-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.35rem; }
+    .case-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* DIFERENCIAIS */
+    #diferenciais { background: var(--bg-section); }
+    .diferenciais-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .dif-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius); padding: 2rem;
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .dif-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .dif-icon {
+      width: 52px; height: 52px; background: rgba(196,230,0,0.08);
+      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dif-icon svg { width: 26px; height: 26px; stroke: var(--accent-lime); fill: none; stroke-width: 1.5; }
+    .dif-content h4 { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+    .dif-content p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* FOUNDERS */
+    #founders { background: var(--bg-deep); }
+    .founders-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .founders-header { position: sticky; top: 5rem; }
+    .founders-intro { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin-top: 1.25rem; }
+    .founders-list { display: flex; flex-direction: column; gap: 1.75rem; }
+    .founder-row {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .founder-row:hover { border-color: var(--border); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .founder-row-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg-deep);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .founder-row-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .founder-row:hover .founder-row-photo img { transform: scale(1.03); }
+    .founder-row-body {
+      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .founder-row-name {
+      font-family: 'Quatro', serif; font-weight: 700;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--text-primary); margin-bottom: 0.35rem; line-height: 1.1;
+    }
+    .founder-row-role {
+      font-size: 0.8rem; font-weight: 500; color: var(--accent-lime);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem;
+    }
+    .founder-row-bio { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
+
+    /* CTA FINAL */
+    #cta-final {
+      background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    #cta-final::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(196,230,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-geo {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 480px; height: 480px; border: 1px solid rgba(196,230,0,0.04);
+      border-radius: 50%; pointer-events: none;
+    }
+    .cta-geo-2 {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 320px; height: 320px; border: 1px solid rgba(196,230,0,0.04);
+      border-radius: 50%; pointer-events: none;
+    }
+    .cta-final-inner { position: relative; z-index: 1; text-align: left; }
+    .cta-final-title {
+      font-size: clamp(1.9rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.15;
+      margin-bottom: 1.25rem; max-width: 900px; margin-left: 0; margin-right: auto;
+    }
+    .cta-final-title em {
+      font-family: 'Quatro', serif; font-style: italic; font-weight: 300;
+      color: var(--accent-lime);
+    }
+    .cta-final-body { font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto 2.5rem 0; line-height: 1.7; }
+    .cta-final-btns { display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border-subtle);
+      padding: 4rem 0 2rem;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem;
+      padding-bottom: 3rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2rem;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+    .footer-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--text-primary); }
+    .footer-logo-text span { color: var(--accent-lime); }
+    .footer-tagline { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; max-width: 280px; }
+    .footer-tagline strong { color: var(--accent-lime); }
+    .footer-nav h5, .footer-contact h5 {
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-primary); margin-bottom: 1.25rem;
+    }
+    .footer-nav ul { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-nav ul li a { font-size: 0.88rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-nav ul li a:hover { color: var(--text-primary); }
+    .footer-contact-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent-lime); color: #050D1A; font-weight: 700; font-size: 0.85rem;
+      padding: 0.7rem 1.4rem; border-radius: var(--radius-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .footer-contact-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,230,0,0.25); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-copy span { color: var(--accent-lime); }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: 1fr 1fr; }
+      .bento-a { grid-column: span 2; }
+      .bento-b, .bento-c, .bento-d, .bento-e { grid-column: span 1; }
+      .implementamos-grid { grid-template-columns: 1fr 1fr; }
+      .phases-grid { grid-template-columns: 1fr 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .met-panel.active { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      section { padding: 4rem 0; }
+
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-a, .bento-b, .bento-c, .bento-d, .bento-e { grid-column: span 1; }
+
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .phases-grid { grid-template-columns: 1fr 1fr; }
+      .implementamos-grid { grid-template-columns: 1fr; }
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .founders-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .founders-header { position: static; }
+      .founder-row { grid-template-columns: 180px 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .hero-metrics { grid-template-columns: 1fr; }
+      .metric-item { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+      .metric-item:last-child { border-bottom: none; }
+
+      .para-quem-closing { padding: 1.75rem; }
+      .metodologia-tabs { overflow-x: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .phases-grid { grid-template-columns: 1fr; }
+      .founders-layout { grid-template-columns: 1fr; }
+      .founder-row { grid-template-columns: 1fr; }
+      .founder-row-photo { aspect-ratio: 16/9; }
+      .founder-row-body { padding: 1.5rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .cta-final-btns { flex-direction: column; align-items: center; }
+    }
+
+    /* ─── SCROLLBAR ─────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+  </style>
+</head>
+<body>
+
+<!-- ──────────────────────────── NAV ──────────────────────────────── -->
+<nav id="nav" role="navigation" aria-label="Navegação principal">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Land Grow — Página inicial">
+        <div class="nav-logo-mark" aria-hidden="true"></div>
+        <div class="nav-logo-wordmark">
+          <span class="nav-logo-name">Land Grow</span>
+          <span class="nav-logo-tagline">Business Intelligence</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#conceito">Sobre</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+        <li><a href="#founders">Founders</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contato" class="btn btn-primary">Quero acelerar</a>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile" role="menu" aria-hidden="true">
+      <a href="#conceito" role="menuitem">Sobre</a>
+      <a href="#como-funciona" role="menuitem">Como funciona</a>
+      <a href="#metodologia" role="menuitem">Metodologia</a>
+      <a href="#founders" role="menuitem">Founders</a>
+      <a href="#contato" class="btn btn-primary" style="text-align:center" role="menuitem">Quero acelerar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — editorial magazine style, left-aligned, rotating bg
+═══════════════════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-title">
+
+  <!-- Rotating business background images -->
+  <div class="hero-bg-stack" aria-hidden="true">
+    <div class="hero-bg-item active" style="background-image:url('assets/site land.png'); background-size:contain; background-position:right center;"></div>
+    <div class="hero-bg-item" style="background-image:url('assets/governança.jpg'); background-size:contain; background-position:right center;"></div>
+    <div class="hero-bg-item" style="background-image:url('assets/expansão.jpg'); background-size:contain; background-position:right center;"></div>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <!-- ── Main editorial content (left-aligned) ── -->
+  <div class="hero-main">
+    <div>
+
+      <!-- Eyebrow — typographic, sem pill/badge -->
+      <div class="hero-eyebrow-ed">
+        <span class="hero-eyebrow-dash" aria-hidden="true"></span>
+        <span class="hero-eyebrow-cat">Inteligência de negócios</span>
+        <span class="hero-eyebrow-sep" aria-hidden="true">·</span>
+        <span class="hero-eyebrow-sub">Aceleração empresarial</span>
+      </div>
+
+      <!-- Headline — Barlow Condensed + DM Serif Display italic -->
+      <h1 id="hero-title" class="hero-title-ed">
+        <span class="hero-t-sans">Aceleramos os</span>
+        <span class="hero-t-serif"><em>resultados</em></span>
+        <span class="hero-t-sans">do seu negócio.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="hero-sub-ed">
+        Com direção estratégica, governança, gestão de processos e expansão comercial personalizadas para que você fature mais, com a estrutura que garante que esse crescimento seja previsível e sustentado.
+      </p>
+
+      <!-- Single CTA -->
+      <div class="hero-cta-wrap">
+        <a href="#como-funciona" class="btn btn-primary btn-lg">
+          Conheça nosso programa de aceleração
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Bottom bar — image labels + progress ── -->
+  <div class="hero-bottom-bar">
+    <div class="hero-img-labels" role="tablist" aria-label="Imagens do hero">
+      <span class="hero-img-label active" role="tab" aria-selected="true"  data-bg="0" tabindex="0">Estratégia</span>
+      <span class="hero-img-label"        role="tab" aria-selected="false" data-bg="1" tabindex="0">Governança</span>
+      <span class="hero-img-label"        role="tab" aria-selected="false" data-bg="2" tabindex="0">Expansão</span>
+    </div>
+    <div class="hero-progress-wrap">
+      <div class="hero-progress-track-el" aria-hidden="true">
+        <div class="hero-progress-fill-el" style="width:33.33%"></div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CARROSSEL — logo-carousel style (com título animado)
+═══════════════════════════════════════════════════════════════ -->
+<section id="partners" aria-labelledby="partners-title">
+  <div class="container">
+    <div class="partners-header reveal">
+      <p class="section-label">Parceiros &amp; Clientes</p>
+      <h2 class="partners-title" id="partners-title" aria-label="Confiado por empresas que lideram seus mercados">
+        <!-- Letters inserted by JS for TextRoll animation -->
+      </h2>
+    </div>
+  </div>
+
+  <div class="marquee-track">
+    <div class="marquee-inner" aria-label="Logos de parceiros e clientes">
+      <!-- set 1 -->
+      <div class="partner-card"><img src="assets/logo 1.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 3.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 4.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 5.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 6.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 7.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 8.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 9.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 10.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 12.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 12 (1).png" alt="Parceiro" class="partner-logo-img"></div>
+      <!-- set 2 duplicate for seamless loop -->
+      <div class="partner-card"><img src="assets/logo 1.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 3.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 4.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 5.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 6.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 7.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 8.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 9.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 10.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 12.png" alt="Parceiro" class="partner-logo-img"></div>
+      <div class="partner-card"><img src="assets/logo 12 (1).png" alt="Parceiro" class="partner-logo-img"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     QUEM SOMOS — cybernetic-bento-grid style
+═══════════════════════════════════════════════════════════════ -->
+<section id="conceito" aria-labelledby="conceito-title">
+  <div class="container">
+
+    <div class="conceito-header">
+      <p class="section-label reveal">Quem somos</p>
+      <h2 class="section-title reveal reveal-delay-1" id="conceito-title" style="max-width:640px;">
+        A Land Grow é uma inteligência de negócios <em style="font-family:'Quatro',serif;font-style:italic;font-weight:300;color:var(--accent-lime)">dentro da sua empresa.</em>
+      </h2>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- A: título grande + primeiros parágrafos — col-span-2 -->
+      <div class="bento-item bento-a accent-top reveal reveal-delay-1">
+        <div class="bento-label">Nossa diferença</div>
+        <h3 class="bento-title">De dono para <em>dono.</em></h3>
+        <div class="bento-body">
+          <p>Consultoria entrega análise, apresenta um relatório e vai embora.</p>
+          <p>Aqui a conversa é diferente.</p>
+          <p>Nós implementamos. Ficamos do lado enquanto a estrutura está sendo construída, acompanhamos a execução, as métricas e garantimos que todas as estratégias sejam entregues com eficiência e resultado.</p>
+          <p>Aceleração, para nós, não é só sobre velocidade. É sobre direção.</p>
+        </div>
+        <div class="bento-bg-letter" aria-hidden="true">LG</div>
+      </div>
+
+      <!-- B: Como atuamos — col-span-1 -->
+      <div class="bento-item bento-b reveal reveal-delay-2">
+        <div class="bento-label">Como atuamos</div>
+        <div class="pillar-list">
+          <div class="pillar-item">Implementação ativa ao lado do dono</div>
+          <div class="pillar-item">Processos documentados e replicáveis</div>
+          <div class="pillar-item">Estrutura que permanece após a jornada</div>
+          <div class="pillar-item">Decisões orientadas por dados reais</div>
+          <div class="pillar-item">Crescimento previsível e sustentado</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PARA QUEM — modern-feature-grid style
+═══════════════════════════════════════════════════════════════ -->
+<section id="para-quem" aria-labelledby="para-quem-title">
+  <div id="para-quem-glow" aria-hidden="true"></div>
+  <div class="container">
+
+    <p class="section-label reveal">Para quem é</p>
+    <h2 class="section-title reveal reveal-delay-1" id="para-quem-title" style="max-width:680px;">
+      Empresas que estão <em style="font-family:'Quatro',serif;font-style:italic;font-weight:300;color:var(--accent-lime);">estagnadas</em> em seu crescimento.
+    </h2>
+
+    <div class="feature-grid" role="list">
+
+      <div class="feature-card reveal reveal-delay-1" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>As decisões ainda dependem do dono.</h4>
+          <p>O negócio para quando você para. Sem você, nada avança.</p>
+        </div>
+      </div>
+
+      <div class="feature-card reveal reveal-delay-2" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>O crescimento existe, mas não é previsível.</h4>
+          <p>Não dá pra planejar o próximo ano com confiança real.</p>
+        </div>
+      </div>
+
+      <div class="feature-card reveal reveal-delay-3" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>O time que entra não fica.</h4>
+          <p>Alta rotatividade consome tempo, dinheiro e energia continuamente.</p>
+        </div>
+      </div>
+
+      <div class="feature-card reveal reveal-delay-4" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>O modelo de negócios não foi ajustado ao crescimento.</h4>
+          <p>O modelo de negócios é o orientador da comunicação, cultura e crescimento da empresa.</p>
+        </div>
+      </div>
+
+      <div class="feature-card reveal reveal-delay-5" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>Não tem processos estabelecidos, o que gera o famoso caos operacional.</h4>
+          <p>Sem processos, cada entrega depende de quem está presente — e isso não escala.</p>
+        </div>
+      </div>
+
+      <div class="feature-card reveal reveal-delay-6" role="listitem">
+        <div class="feature-icon-box" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="feature-text">
+          <h4>O negócio cresceu. Mas a estrutura não acompanhou.</h4>
+          <p>A operação não está pronta para sustentar o próximo nível.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="para-quem-closing reveal">
+      <p>
+        Você sabe que o negócio pode ser maior. O que falta é <span>a estrutura para chegar lá</span> sem perder o controle do que já foi construído.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JORNADA — features-2 / CardDecorator style
+═══════════════════════════════════════════════════════════════ -->
+<section id="como-funciona" aria-labelledby="como-title">
+  <canvas id="dotted-surface-canvas" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+  <div class="container">
+    <p class="section-label reveal">Como funciona</p>
+    <h2 class="section-title reveal reveal-delay-1" id="como-title">Como a aceleração acontece na prática.</h2>
+    <p class="como-intro reveal reveal-delay-2">
+      Nossa jornada é estruturada em fases sequenciais. Cada fase tem entregas concretas que constroem a base para a próxima. O ritmo depende do negócio, das pessoas e do momento da empresa.
+    </p>
+
+    <div class="phases-grid">
+
+      <!-- Fase 01 -->
+      <div class="phase-card reveal reveal-delay-1">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 01 · Diagnóstico</p>
+          <h3 class="phase-title">Diagnóstico Estratégico</h3>
+          <p class="phase-desc">Mapeamos o negócio inteiro antes de recomendar qualquer ação. Dez setores analisados, quatro entregáveis gerados, gargalos identificados com precisão.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Dossiê de diagnóstico completo + mapa de prioridades + primeiro resultado financeiro mensurável.</div>
+        </div>
+      </div>
+
+      <!-- Fase 02 -->
+      <div class="phase-card reveal reveal-delay-2">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 02 · Modelagem</p>
+          <h3 class="phase-title">Modelo Integrado de Negócios</h3>
+          <p class="phase-desc">Construímos a estrutura completa do modelo de negócios documentada. Doze blocos integrados que geram uma visão sistêmica que a maioria dos empresários nunca teve do próprio negócio.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Modelo de negócios completo + declaração de posicionamento + perfil de cliente ideal.</div>
+        </div>
+      </div>
+
+      <!-- Fase 03 -->
+      <div class="phase-card reveal reveal-delay-3">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 03 · Comercial</p>
+          <h3 class="phase-title">Motor Comercial</h3>
+          <p class="phase-desc">Construímos o processo de vendas que funciona sem o dono. Funil do primeiro contato ao fechamento, canais de aquisição e processos de qualificação e customer success.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Funil comercial documentado + script de qualificação + canal de aquisição ativo.</div>
+        </div>
+      </div>
+
+      <!-- Fase 04 -->
+      <div class="phase-card reveal reveal-delay-4">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 04 · Financeiro</p>
+          <h3 class="phase-title">Margem e Precificação</h3>
+          <p class="phase-desc">Calculamos a margem real de cada produto ou serviço, identificamos o que sustenta o negócio e revisamos a precificação com base em valor percebido.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Margem real calculada + matriz de rentabilidade + precificação revisada com projeção de impacto.</div>
+        </div>
+      </div>
+
+      <!-- Fase 05 -->
+      <div class="phase-card reveal reveal-delay-5">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 05 · Escala</p>
+          <h3 class="phase-title">Escala Operacional</h3>
+          <p class="phase-desc">Atacamos a dependência do dono. Delegação estruturada, processos documentados e rituais de gestão implementados para que o time execute sem travar.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Atividades críticas delegadas + protocolo de delegação + estrutura de reuniões implementada.</div>
+        </div>
+      </div>
+
+      <!-- Fase 06 -->
+      <div class="phase-card reveal reveal-delay-6">
+        <div class="phase-decorator" aria-hidden="true">
+          <div class="phase-decorator-inner">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="phase-body">
+          <p class="phase-label">Fase 06 · Governança</p>
+          <h3 class="phase-title">Governança e Próximo Ciclo</h3>
+          <p class="phase-desc">Sistema de gestão que você opera sozinho, métricas para monitorar a saúde do negócio e planejamento do próximo ciclo de crescimento.</p>
+          <div class="phase-deliverable"><strong>Você recebe:&nbsp;</strong>Painel de controle funcionando + apresentação de resultados + planejamento do próximo ciclo.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SEÇÕES V1 (MANTIDAS) ════════════════════ -->
+
+<!-- METODOLOGIA -->
+<section id="metodologia" aria-labelledby="met-title">
+  <div class="container">
+    <p class="section-label reveal">Metodologia</p>
+    <h2 class="section-title reveal reveal-delay-1" id="met-title">Método próprio. Construído para negócios reais, não para apresentações.</h2>
+
+    <div class="reveal reveal-delay-2">
+      <div class="metodologia-tabs" role="tablist" aria-label="Metodologias">
+        <button class="met-tab active" role="tab" aria-selected="true" aria-controls="tab-bin" id="btn-bin" onclick="switchTab('bin')">BIN</button>
+        <button class="met-tab" role="tab" aria-selected="false" aria-controls="tab-min" id="btn-min" onclick="switchTab('min')">MIN</button>
+        <button class="met-tab" role="tab" aria-selected="false" aria-controls="tab-ws" id="btn-ws" onclick="switchTab('ws')">WORKSMART</button>
+      </div>
+
+      <div class="met-panel active" id="tab-bin" role="tabpanel" aria-labelledby="btn-bin">
+        <div class="met-content">
+          <h3><span>BIN</span></h3>
+          <p class="met-subtitle">Business Insight Navigator</p>
+          <p class="met-body">O diagnóstico estratégico do negócio. Mapeia dez setores, gera quatro entregáveis e revela com precisão onde estão os gargalos que estão limitando o crescimento. É o ponto de partida de toda aceleração e a base que orienta todas as decisões da jornada.</p>
+        </div>
+        <div class="met-visual">
+          <p class="met-visual-title">O que o BIN mapeia</p>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="met-feature-text"><strong>10 Setores Analisados</strong>Visão completa da operação e estratégia</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="met-feature-text"><strong>4 Entregáveis Concretos</strong>Dossiê, mapa de prioridades e mais</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="met-feature-text"><strong>1º Resultado Mensurável</strong>Ganho financeiro ainda na fase de diagnóstico</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="met-panel" id="tab-min" role="tabpanel" aria-labelledby="btn-min" hidden>
+        <div class="met-content">
+          <h3><span>MIN</span></h3>
+          <p class="met-subtitle">Modelo Integrado de Negócios</p>
+          <p class="met-body">Evolução do Business Model Canvas com doze blocos integrados. Diferente de ferramentas tradicionais de modelagem, o MIN é um documento vivo que conecta proposta de valor, jornada do cliente, estrutura de receita, custos, parceiros e métricas em uma única arquitetura — tornando-se a referência central para decisões, comunicação e posicionamento do negócio.</p>
+        </div>
+        <div class="met-visual">
+          <p class="met-visual-title">Blocos integrados do MIN</p>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div class="met-feature-text"><strong>12 Blocos Integrados</strong>Visão sistêmica completa do modelo</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="met-feature-text"><strong>Perfil de Cliente Ideal</strong>Definição precisa do ICP</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="met-feature-text"><strong>Posicionamento Declarado</strong>Diferenciação clara e comunicável</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="met-panel" id="tab-ws" role="tabpanel" aria-labelledby="btn-ws" hidden>
+        <div class="met-content">
+          <h3><span>WORK</span>SMART</h3>
+          <p class="met-subtitle">Planejamento e Execução</p>
+          <p class="met-body">A metodologia de planejamento e execução da Land Grow. Transforma objetivos em atividades-chave com acurácia, garante que o planejamento seja construído de fora para dentro e mantém o foco no que gera resultado, não no que gera movimento.</p>
+        </div>
+        <div class="met-visual">
+          <p class="met-visual-title">Princípios do WorkSmart</p>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="met-feature-text"><strong>Fora para Dentro</strong>Planejamento orientado por resultados</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+            <div class="met-feature-text"><strong>Atividades-Chave</strong>Foco no que move o ponteiro, não no que ocupa a agenda</div>
+          </div>
+          <div class="met-feature">
+            <div class="met-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="met-feature-text"><strong>Cadência Estruturada</strong>Rituais de gestão que garantem execução</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" aria-labelledby="dif-title">
+  <div class="container">
+    <p class="section-label reveal">Diferenciais</p>
+    <h2 class="section-title reveal reveal-delay-1" id="dif-title">O que separa a Land Grow de tudo que você já contratou antes.</h2>
+
+    <div class="diferenciais-grid">
+      <div class="dif-card reveal reveal-delay-1">
+        <div class="dif-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="dif-content">
+          <h4>Implementação, não recomendação</h4>
+          <p>Não entregamos um documento com o que você deveria fazer. Implementamos junto, acompanhamos a execução e ajustamos o que não está funcionando.</p>
+        </div>
+      </div>
+
+      <div class="dif-card reveal reveal-delay-2">
+        <div class="dif-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="dif-content">
+          <h4>Personalização real</h4>
+          <p>Governança, processos e estratégia comercial desenhados para o que o seu negócio é, não para um modelo genérico de gestão.</p>
+        </div>
+      </div>
+
+      <div class="dif-card reveal reveal-delay-3">
+        <div class="dif-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="dif-content">
+          <h4>Estrutura que permanece</h4>
+          <p>Quando a Land Grow sai, o negócio continua funcionando. Os processos estão documentados, o time sabe o que fazer e o dono tem um painel de controle para monitorar sozinho.</p>
+        </div>
+      </div>
+
+      <div class="dif-card reveal reveal-delay-4">
+        <div class="dif-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="dif-content">
+          <h4>Inteligência de negócios aplicada</h4>
+          <p>Cada decisão da jornada é orientada por dados do próprio negócio do cliente, não por intuição ou benchmarks genéricos de mercado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders" aria-labelledby="founders-title">
+  <div class="container">
+    <div class="founders-layout">
+
+      <!-- Coluna esquerda: texto -->
+      <div class="founders-header">
+        <p class="section-label reveal">Quem somos</p>
+        <h2 class="section-title reveal reveal-delay-1" id="founders-title">Conheça os<br>Founders</h2>
+        <p class="founders-intro reveal reveal-delay-2">
+          O Land Grow nasceu da convicção de que empresas não crescem por acaso, crescem por sistema. Nossa trajetória é construída na interseção entre estratégia de negócios, tecnologia e desenvolvimento humano. Mais do que estrategistas, somos parceiros comprometidos com o crescimento eficiente e sustentável de cada empresa que confia na Land Grow Business Intelligence.
+        </p>
+      </div>
+
+      <!-- Coluna direita: cards dos founders -->
+      <div class="founders-list">
+
+        <article class="founder-row reveal reveal-delay-1">
+          <div class="founder-row-photo">
+            <img src="assets/socio 1.png" alt="Cândido Estrela — Founder Land Grow" loading="lazy">
+          </div>
+          <div class="founder-row-body">
+            <div class="founder-row-name">Cândido Estrela</div>
+            <div class="founder-row-role">Estrategista &amp; Customer Success</div>
+            <p class="founder-row-bio">Especialista em estratégia de negócios e implementação de sistemas de crescimento, com experiência sólida na gestão e aceleração de empresas de médio porte. À frente do diagnóstico estratégico e da construção dos motores comerciais e operacionais que sustentam a jornada de cada cliente da Land Grow.</p>
+          </div>
+        </article>
+
+        <article class="founder-row reveal reveal-delay-2">
+          <div class="founder-row-photo">
+            <img src="assets/socia 2.png" alt="Nayara Cordeiro — Founder Land Grow" loading="lazy">
+          </div>
+          <div class="founder-row-body">
+            <div class="founder-row-name">Nayara Cordeiro</div>
+            <div class="founder-row-role">Estrategista &amp; Relações Públicas</div>
+            <p class="founder-row-bio">Estrategista de negócios com foco em posicionamento de marca, relações públicas e comunicação corporativa. Especializada em transformar empresas em referências de mercado a partir de uma narrativa clara, uma presença estratégica e uma cultura organizacional orientada para resultados.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contato" aria-labelledby="cta-title">
+  <div class="container" style="position:relative;">
+    <div class="cta-geo" aria-hidden="true"></div>
+    <div class="cta-geo-2" aria-hidden="true"></div>
+    <div class="cta-final-inner">
+      <p class="section-label reveal">Vamos conversar</p>
+      <h2 class="cta-final-title font-display reveal reveal-delay-1" id="cta-title">
+        Seu negócio tem estrutura para sustentar o <em>crescimento</em> que você quer?
+      </h2>
+      <p class="cta-final-body reveal reveal-delay-2">
+        Se a resposta não é um sim imediato, vale uma conversa. Sem pitch, sem pressão. Uma sessão para entender onde o seu negócio está hoje e o que a aceleração pode gerar para você.
+      </p>
+      <div class="cta-final-btns reveal reveal-delay-3">
+        <a href="mailto:contato@landgrow.com.br" class="btn btn-primary btn-lg">Quero acelerar meu negócio</a>
+        <a href="mailto:contato@landgrow.com.br" class="btn btn-outline btn-lg">Fale com um especialista</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" width="30" height="30" aria-hidden="true">
+            <rect width="34" height="34" rx="7" fill="#C4E600" fill-opacity="0.1"/>
+            <rect x="1" y="1" width="32" height="32" rx="6" stroke="#C4E600" stroke-opacity="0.3" stroke-width="1"/>
+            <path d="M9 24L9 10L13 10L13 21L20 21L20 24Z" fill="#C4E600"/>
+            <path d="M20 17C20 14.239 22.239 12 25 12L25 17C25 19.761 22.761 22 20 22L20 17Z" fill="#C4E600" fill-opacity="0.6"/>
+          </svg>
+          <span class="footer-logo-text">Land <span>Grow</span></span>
+        </div>
+        <p class="footer-tagline">
+          <strong>Land Grow significa terra de crescimento.</strong> Atuamos como solo fértil — oferecendo, assim como na natureza, um conjunto de nutrientes para que sua empresa possa crescer forte e saudável.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <h5>Navegação</h5>
+        <ul role="list">
+          <li><a href="#conceito">Sobre</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#metodologia">Metodologia</a></li>
+            <li><a href="#founders">Founders</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h5>Fale Conosco</h5>
+        <a href="mailto:contato@landgrow.com.br" class="footer-contact-cta" aria-label="Enviar e-mail">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contato@landgrow.com.br
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 <span>Land Grow Business Intelligence</span>. Todos os direitos reservados.</p>
+      <p class="footer-copy" style="color:var(--text-muted);">landgrow.com.br</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+<!-- ─────────────────────────── SCRIPTS ───────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── NAV SCROLL ── */
+  var nav = document.getElementById('nav');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ── HAMBURGER ── */
+  var hamburger = document.getElementById('hamburger');
+  var navMobile = document.getElementById('navMobile');
+  hamburger.addEventListener('click', function () {
+    var open = navMobile.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    navMobile.setAttribute('aria-hidden', String(!open));
+  });
+  navMobile.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navMobile.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      navMobile.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  /* ── SCROLL REVEAL ── */
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(function (el) { revealObs.observe(el); });
+
+  /* ── COUNTER ANIMATION ── */
+  function animateCounter(el, target, duration) {
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counterEls = document.querySelectorAll('.counter');
+  var counterObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target, parseInt(entry.target.getAttribute('data-target'), 10), 1600);
+        counterObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counterEls.forEach(function (el) { counterObs.observe(el); });
+
+  /* ── PARTNERS TITLE — TextRoll-inspired ── */
+  var title = 'Confiado por empresas que lideram seus mercados.';
+  var ptEl = document.querySelector('.partners-title');
+  if (ptEl) {
+    ptEl.innerHTML = '';
+    title.split('').forEach(function (ch, i) {
+      var span = document.createElement('span');
+      span.className = 't-char';
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      span.style.animationDelay = (i * 0.022) + 's';
+      span.style.animationDuration = '0.45s';
+      ptEl.appendChild(span);
+    });
+    // Trigger only when visible
+    var ptObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          ptEl.querySelectorAll('.t-char').forEach(function (s) {
+            s.style.animationPlayState = 'running';
+          });
+          ptObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    // Start paused
+    ptEl.querySelectorAll('.t-char').forEach(function (s) {
+      s.style.animationPlayState = 'paused';
+    });
+    ptObs.observe(ptEl);
+  }
+
+  /* ── BENTO GRID — mouse glow ── */
+  document.querySelectorAll('.bento-item').forEach(function (item) {
+    item.addEventListener('mousemove', function (e) {
+      var rect = item.getBoundingClientRect();
+      item.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+      item.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+    });
+  });
+
+  /* ── PARA QUEM — global mouse radial glow ── */
+  var pqSection = document.getElementById('para-quem');
+  var pqGlow = document.getElementById('para-quem-glow');
+  if (pqSection && pqGlow) {
+    pqSection.addEventListener('mousemove', function (e) {
+      var rect = pqSection.getBoundingClientRect();
+      pqGlow.style.setProperty('--glow-x', (e.clientX - rect.left) + 'px');
+      pqGlow.style.setProperty('--glow-y', (e.clientY - rect.top) + 'px');
+    });
+  }
+
+  /* ── HERO IMAGE ROTATION ── */
+  (function () {
+    var items    = document.querySelectorAll('.hero-bg-item');
+    var labels   = document.querySelectorAll('.hero-img-label');
+    var fill     = document.querySelector('.hero-progress-fill-el');
+    var counterEl = document.querySelector('.hero-counter-current');
+    var total    = items.length;
+    var current  = 0;
+    var timer    = null;
+
+    if (!total) return;
+
+    function goTo(idx) {
+      items[current].classList.remove('active');
+      if (labels[current]) labels[current].classList.remove('active');
+      if (labels[current]) labels[current].setAttribute('aria-selected', 'false');
+      current = idx;
+      items[current].classList.add('active');
+      if (labels[current]) labels[current].classList.add('active');
+      if (labels[current]) labels[current].setAttribute('aria-selected', 'true');
+      if (fill)      fill.style.width = ((current + 1) / total * 100) + '%';
+      if (counterEl) counterEl.textContent = String(current + 1).padStart(2, '0');
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(function () { goTo((current + 1) % total); }, 5000);
+    }
+
+    // Click / keyboard on labels
+    labels.forEach(function (label) {
+      label.addEventListener('click', function () {
+        goTo(parseInt(label.getAttribute('data-bg'), 10));
+        startTimer();
+      });
+      label.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          goTo(parseInt(label.getAttribute('data-bg'), 10));
+          startTimer();
+        }
+      });
+    });
+
+    // Pause on hover
+    var heroEl = document.getElementById('hero');
+    if (heroEl) {
+      heroEl.addEventListener('mouseenter', function () { clearInterval(timer); });
+      heroEl.addEventListener('mouseleave', startTimer);
+    }
+
+    startTimer();
+  })();
+
+  /* ── DOTTED SURFACE — Como Funciona ── */
+  (function () {
+    var section = document.getElementById('como-funciona');
+    var canvas  = document.getElementById('dotted-surface-canvas');
+    if (!section || !canvas || typeof THREE === 'undefined') return;
+
+    var W = section.offsetWidth;
+    var H = section.offsetHeight;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(52, W / H, 0.1, 200);
+    camera.position.set(0, 4, 6);
+    camera.lookAt(0, 0, 0);
+
+    /* Build dot grid */
+    var COLS = 60, ROWS = 38;
+    var positions = [];
+    var origX = [], origZ = [];
+    var r, c, x, z;
+    for (r = 0; r < ROWS; r++) {
+      for (c = 0; c < COLS; c++) {
+        x = (c / (COLS - 1) - 0.5) * 16;
+        z = (r / (ROWS - 1) - 0.5) * 11;
+        positions.push(x, 0, z);
+        origX.push(x);
+        origZ.push(z);
+      }
+    }
+
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+    var mat = new THREE.PointsMaterial({
+      color: 0xC4E600,
+      size: 0.038,
+      transparent: true,
+      opacity: 0.45,
+      sizeAttenuation: true
+    });
+
+    scene.add(new THREE.Points(geo, mat));
+
+    var posArray = geo.attributes.position.array;
+    var total    = ROWS * COLS;
+    var t        = 0;
+    var animId   = null;
+
+    function animate() {
+      animId = requestAnimationFrame(animate);
+      t += 0.006;
+      for (var i = 0; i < total; i++) {
+        posArray[i * 3 + 1] =
+          Math.sin(origX[i] * 0.65 + t) * 0.38 +
+          Math.sin(origZ[i] * 0.5  + t * 0.75) * 0.28;
+      }
+      geo.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+
+    /* Start / stop based on visibility */
+    var vis = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        if (!animId) animate();
+      } else {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }, { threshold: 0.01 });
+    vis.observe(section);
+
+    /* Resize */
+    window.addEventListener('resize', function () {
+      W = section.offsetWidth;
+      H = section.offsetHeight;
+      camera.aspect = W / H;
+      camera.updateProjectionMatrix();
+      renderer.setSize(W, H);
+    }, { passive: true });
+  })();
+
+  /* ── METODOLOGIA TABS ── */
+  window.switchTab = function (id) {
+    var map = { bin: 'tab-bin', min: 'tab-min', ws: 'tab-ws' };
+    var btnMap = { bin: 'btn-bin', min: 'btn-min', ws: 'btn-ws' };
+    Object.keys(map).forEach(function (key) {
+      var panel = document.getElementById(map[key]);
+      var btn = document.getElementById(btnMap[key]);
+      var active = key === id;
+      panel.classList.toggle('active', active);
+      panel.hidden = !active;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', String(active));
+    });
+  };
+
+})();
+</script>
+
+</body>
+</html>
